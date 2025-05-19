@@ -6,6 +6,10 @@
     --font-roboto: "Roboto", sans-serif;
 }
 
+.divContentAll {
+    @apply bg-[url('../img/bg_content.png')] bg-cover bg-center
+}
+
 .navInputs {
     @apply flex flex-col items-center justify-center;
 }
