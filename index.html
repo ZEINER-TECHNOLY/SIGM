@@ -11,18 +11,18 @@
 </head>
 <body>
     <div action="#" class="flex">
-        <nav>
+        <nav class="hidden md:block">
             <img src="assets/img/imhf.jpeg" alt="" srcset="" class="h-screen w-[50vw]">
         </nav>
-        <nav class="w-[50vw] flex flex-col justify-around px-20">
+        <nav class="md:w-[50vw] flex flex-col justify-around md:px-20 px-5 py-5">
             <nav>
                 <nav class="flex items-center justify-center">
-                    <img src="assets/img/logotipo.png" alt="" srcset="" class="w-[200px] imgForm">
+                    <img src="assets/img/logotipo.png" alt="" srcset="" class="md:w-[200px] w-[150px]">
                 </nav>
                 <form action="#">
-                    <h2 class="font-arimo font-extrabold text-[21pt] text-[#0c215e]">Bem-vindo ao SIGM <br> <span class="text-gray-800">Sistema Integrado de Gestão de Multas</span></h2>
-                    <p class="textoApresentacaoForm font-roboto">O <span class="font-bold text-[#0c215e]">SIGM</span> é um software desenvolvido para revolucionar a gestão de multas, oferecendo uma plataforma robusta, intuitiva e totalmente integrada. Criado para instituições que lidam diariamente com infrações e penalidades, o SIGM transforma o caos em controle, eliminando processos manuais, reduzindo falhas humanas e acelerando decisões com precisão cirúrgica</p>
-                    <div class="flex justify-around">
+                    <h2 class="font-arimo font-extrabold md:text-[21pt] text-[15pt] text-[#0c215e]">Bem-vindo ao SIGM <br> <span class="text-gray-800">Sistema Integrado de Gestão de Multas</span></h2>
+                    <p class="textoApresentacaoForm font-roboto text-justify md:text-left">O <span class="font-bold text-[#0c215e]">SIGM</span> é um software desenvolvido para revolucionar a gestão de multas, oferecendo uma plataforma robusta, intuitiva e totalmente integrada. Criado para instituições que lidam diariamente com infrações e penalidades, o SIGM transforma o caos em controle, eliminando processos manuais, reduzindo falhas humanas e acelerando decisões com precisão cirúrgica</p>
+                    <div class="flex justify-around md:flex-row flex-col">
                         <nav class="navInputs">
                             <label for="#">Utilizador</label>
                             <input type="text" class="inputUser">
@@ -32,8 +32,8 @@
                             <input type="text" class="inputSenha">
                         </nav>
                     </div>
-                    <div class="bg-gray-400 rounded-full p-2 w-max flex items-center justify-center mt-[5%] shadow-gray-800 shadow-sm">
-                        <button type="button" class="btnForm btnForm0">Cancelar</button>
+                    <div class="bg-gray-400 rounded-full p-2 w-max mt-[5%] shadow-gray-800 shadow-sm m-auto">
+                        <button type="reset" class="btnForm btnForm0">Cancelar</button>
                         <button type="button" class="btnForm">Acessar Agora <i class="fa-solid fa-arrow-right -rotate-45"></i> </button>
                     </div>
                 </form>
