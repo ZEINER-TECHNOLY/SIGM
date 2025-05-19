@@ -1,1 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --font-arimo: "Arimo", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+}
+
+.navInputs {
+    @apply flex flex-col items-center justify-center;
+}
+
+.navInputs label {
+    @apply font-roboto font-extrabold text-gray-800 uppercase
+}
+
+.inputUser {
+    @apply bg-[url('../img/user-solid.svg')] 
+}
+
+.inputSenha {
+    @apply bg-[url('../img/lock-solid.svg')]
+}
+
+.navInputs input {
+    @apply border-0 border-b-2 border-b-[#0c215e] px-4 pr-6 outline-0 font-roboto bg-right bg-no-repeat bg-size-[7%]
+}
+
+.textoApresentacaoForm {
+    @apply py-4
+}
+
+.btnForm {
+    @apply bg-[#0c215e] mx-1 p-1.5 rounded-full font-roboto text-white font-bold cursor-pointer shadow-sm shadow-gray-800 hover:shadow-md transition-all ease-in duration-400
+}
+
+.btnForm0 {
+    @apply bg-transparent shadow-none hover:shadow-none text-[#0c215e]
+}
