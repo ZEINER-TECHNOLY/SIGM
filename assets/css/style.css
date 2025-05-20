@@ -41,3 +41,7 @@
 .btnForm0 {
     @apply bg-transparent shadow-none hover:shadow-none text-[#0c215e]
 }
+
+.contentOpcao {
+    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-screen flex items-center md:justify-around flex-col md:flex-row p-5 justify-center
+}
