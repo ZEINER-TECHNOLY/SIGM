@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --info: #1abc9c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .stat-card.total::before {
+            background: var(--accent);
+        }
+        
+        .stat-card.processos::before {
+            background: var(--info);
+        }
+        
+        .stat-card.sentencas::before {
+            background: var(--success);
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .stat-icon.total {
+            background: var(--accent);
+        }
+        
+        .stat-icon.grave {
+            background: #e74c3c;
+        }
+        
+        .stat-icon.media {
+            background: #f39c12;
+        }
+        
+        .stat-icon.leve {
+            background: #2ecc71;
+        }
+        
+        .stat-icon.processos {
+            background: #3498db;
+        }
+        
+        .stat-icon.sentencas {
+            background: #1abc9c;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 1rem 0;
+        }
+        
+        .stat-value::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            margin-top: 0.5rem;
+        }
+        
+        .stat-card.total .stat-value::after {
+            background: var(--accent);
+        }
+        
+        .stat-details {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .stat-details li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .stat-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+        }
+        
+        .stat-number {
+            font-weight: 600;
+        }
+        
+        .empty-value {
+            color: #bdc3c7;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SIGM</h1>
+            <p>Dados SIGM</p>
+        </header>
+        
+        <div class="stats-grid">
+            <!-- Card de Total de Multas -->
+            <div class="stat-card total">
+                <div class="stat-header">
+                    <h2 class="stat-title">TOTAL DE MULTAS</h2>
+                    <div class="stat-icon total">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                </div>
+                <div class="stat-value">=</div>
+            </div>
+            
+            <!-- Card de Contravenções Graves -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h2 class="stat-title">Contravenções Graves</h2>
+                    <div class="stat-icon grave">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="stat-value empty-value">Não informado</div>
+                <ul class="stat-details">
+                    <li>
+                        <span class="stat-label">Último mês</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Este ano</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Card de Contravenções Menos Graves -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h2 class="stat-title">Contravenções Menos Graves</h2>
+                    <div class="stat-icon media">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value empty-value">Não informado</div>
+                <ul class="stat-details">
+                    <li>
+                        <span class="stat-label">Último mês</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Este ano</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Card de Contravenções Leves -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <h2 class="stat-title">Contravenções Leves</h2>
+                    <div class="stat-icon leve">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value empty-value">Não informado</div>
+                <ul class="stat-details">
+                    <li>
+                        <span class="stat-label">Último mês</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Este ano</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Card de Processos Criminais -->
+            <div class="stat-card processos">
+                <div class="stat-header">
+                    <h2 class="stat-title">Processos Criminais</h2>
+                    <div class="stat-icon processos">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                </div>
+                <div class="stat-value empty-value">Não informado</div>
+                <ul class="stat-details">
+                    <li>
+                        <span class="stat-label">Em andamento</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Concluídos</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Card de Processos Contravencionais -->
+            <div class="stat-card processos">
+                <div class="stat-header">
+                    <h2 class="stat-title">Processos Contravencionais</h2>
+                    <div class="stat-icon processos">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                </div>
+                <div class="stat-value empty-value">Não informado</div>
+                <ul class="stat-details">
+                    <li>
+                        <span class="stat-label">Em andamento</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Concluídos</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Card de Sentenças -->
+            <div class="stat-card sentencas">
+                <div class="stat-header">
+                    <h2 class="stat-title">Sentenças ditadas pelo Tribunal</h2>
+                    <div class="stat-icon sentencas">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                </div>
+                <div class="stat-value empty-value">Não informado</div>
+                <ul class="stat-details">
+                    <li>
+                        <span class="stat-label">Este mês</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Este ano</span>
+                        <span class="stat-number empty-value">-</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

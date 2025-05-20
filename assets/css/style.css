@@ -47,5 +47,13 @@
 }
 
 .navContentTela1 {
-    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max w-screen
+    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max flex items-center justify-center flex-col
+}
+
+.cardTela1 {
+    @apply bg-red-500 w-[90%] m-2 h-52
+}
+
+.cabecaCardTela1 {
+    @apply flex flex-col gap-2 p-2.5
 }
