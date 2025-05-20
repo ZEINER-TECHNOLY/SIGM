@@ -511,7 +511,7 @@
 .cardTela1 {
   margin: calc(var(--spacing) * 2);
   height: calc(var(--spacing) * 52);
-  width: 90%;
+  width: 80%;
   background-color: var(--color-red-500);
 }
 .cabecaCardTela1 {
