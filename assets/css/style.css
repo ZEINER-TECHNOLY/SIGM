@@ -47,11 +47,11 @@
 }
 
 .navContentTela1 {
-    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max flex items-center justify-center flex-col
+    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max flex items-center justify-center flex-col md:flex-row md:flex-wrap pt-4
 }
 
 .cardTela1 {
-    @apply w-[80%] m-2 h-52 bg-white shadow-2xl border-y-0 border-r-0 p-2.5 flex flex-col justify-around
+    @apply w-[80%] m-2 h-52 bg-white shadow-2xl border-y-0 border-r-0 p-2.5 flex flex-col justify-around md:w-[25%]
 }
 
 .cardTela1 i {
