@@ -212,6 +212,9 @@
   .hidden {
     display: none;
   }
+  .table {
+    display: table;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -233,11 +236,17 @@
   .flex-grow {
     flex-grow: 1;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .-rotate-45 {
     rotate: calc(45deg * -1);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -250,6 +259,9 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
   }
   .gap-2\.5 {
     gap: calc(var(--spacing) * 2.5);
@@ -324,6 +336,9 @@
   }
   .text-\[\#0c215e\] {
     color: #0c215e;
+  }
+  .text-\[\#e74c3c\] {
+    color: #e74c3c;
   }
   .text-gray-800 {
     color: var(--color-gray-800);
@@ -556,9 +571,8 @@
   font-weight: var(--font-weight-bold);
 }
 .cardTela1 .dados {
-  text-align: center;
   font-family: var(--font-arimo);
-  font-size: 13pt;
+  font-size: 19pt;
   --tw-font-weight: var(--font-weight-extrabold);
   font-weight: var(--font-weight-extrabold);
 }
