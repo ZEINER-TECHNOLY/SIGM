@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Detalhes de Infração</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #3498db;
+            --light-blue: #e8f5ff;
+            --dark-blue: #2c3e50;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+            --background-color: #f8faff;
+            --white: #ffffff;
+            --section-bg: #f2f7fb; /* Lighter shade for section background */
+            --input-border: #bbb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-section {
+            background-color: var(--section-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.35em;
+            color: var(--dark-blue);
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-blue);
+            letter-spacing: 0.5px;
+        }
+
+        /* Adjustments for specific section span */
+        .section-regime {
+            grid-column: span 1; /* Default for single column */
+        }
+        .section-remessa, .section-anexar, .section-relatorio, .section-grafico, .section-mensagem {
+             /* These sections should roughly align as a second row in larger grids */
+             /* On wider screens, these will go under the first row */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            color: var(--text-color);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background-color: var(--white);
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+
+        /* Specific styling for the underlined inputs like Name, Filiation etc. */
+        .underline-input {
+            border: none;
+            border-bottom: 1px solid var(--dark-blue);
+            border-radius: 0;
+            padding: 5px 0;
+            background-color: transparent;
+            font-weight: 600;
+        }
+        .underline-input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: none;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .radio-item input[type="radio"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-blue); /* Modern checkbox color */
+        }
+
+        /* File Upload Styling */
+        .file-upload-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .upload-button {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .hidden-file-input {
+            display: none;
+        }
+
+        .document-area {
+            width: 150px;
+            height: 100px;
+            background-color: var(--white);
+            border: 2px dashed var(--primary-blue);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Special sections styling */
+        .section-grafico {
+            text-align: center;
+            justify-content: center;
+        }
+        .section-grafico .section-title {
+            font-size: 1.2em; /* Slightly smaller for long title */
+        }
+        .graph-placeholder {
+            width: 100%;
+            height: 150px; /* Placeholder for the graph */
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--light-text-color);
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .validate-button-container {
+            grid-column: 1 / -1; /* Spans across all columns */
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .validate-button {
+            background-color: #27ae60; /* Green for validation */
+            color: var(--white);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .validate-button:hover {
+            background-color: #229a55;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive adjustments for the grid */
+        @media (min-width: 1024px) {
+            .form-container {
+                grid-template-columns: repeat(5, 1fr); /* 5 columns on large screens */
+                padding: 40px;
+                gap: 30px;
+            }
+            .section-condutor, .section-veiculo, .section-infraccao, .section-gravidade, .section-regime {
+                grid-row: 1; /* First row */
+            }
+            .section-condutor { grid-column: span 1; }
+            .section-veiculo { grid-column: span 1; }
+            .section-infraccao { grid-column: span 1; }
+            .section-gravidade { grid-column: span 1; }
+            .section-regime { grid-column: span 1; }
+
+            .section-remessa { grid-column: span 1; }
+            .section-anexar { grid-column: span 1; }
+            .section-relatorio { grid-column: span 1; }
+            .section-grafico { grid-column: span 1; }
+            .section-mensagem { grid-column: span 1; }
+
+            .section-remessa, .section-anexar, .section-relatorio, .section-grafico, .section-mensagem {
+                grid-row: 2; /* Second row */
+            }
+
+            /* Adjustments for specific sections spanning in the second row */
+            .section-grafico {
+                grid-column: span 2; /* Graph takes more space */
+            }
+            .section-mensagem {
+                grid-column: span 1; /* Message takes remaining space */
+            }
+        }
+
+
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .form-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+                padding: 30px;
+                gap: 20px;
+            }
+            .section-condutor, .section-veiculo, .section-infraccao, .section-gravidade, .section-regime,
+            .section-remessa, .section-anexar, .section-relatorio, .section-grafico, .section-mensagem {
+                grid-column: span 1; /* Default to single column per section */
+            }
+
+            /* Manual adjustments for better flow on tablet */
+            .section-gravidade, .section-regime {
+                grid-column: span 1; /* Gravidade and Regime together if possible */
+            }
+            .section-grafico {
+                grid-column: span 2; /* Graph still spans two */
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+            .form-container {
+                grid-template-columns: 1fr; /* Stack all sections on small screens */
+                padding: 20px;
+                gap: 15px;
+            }
+            .form-section {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+                padding-bottom: 8px;
+            }
+            .form-group label {
+                font-size: 0.9em;
+            }
+            .form-group input[type="text"],
+            .form-group input[type="date"],
+            .form-group textarea {
+                padding: 8px 10px;
+                font-size: 0.95em;
+            }
+            .underline-input {
+                padding: 4px 0;
+            }
+            .checkbox-item, .radio-item {
+                font-size: 0.9em;
+            }
+            .upload-button {
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+            .document-area {
+                width: 120px;
+                height: 80px;
+                font-size: 0.8em;
+            }
+            .graph-placeholder {
+                height: 120px;
+                font-size: 0.8em;
+            }
+            .validate-button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+        }
+
+        /* Specific alignment for "Dados da Infração" with text and checkbox on the same line */
+        .inline-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .inline-field input[type="text"] {
+            flex-grow: 1; /* Allow text input to take space */
+        }
+        .inline-field label {
+            margin-bottom: 0;
+            white-space: nowrap; /* Prevent "UCF'S" from wrapping */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+
+        <div class="form-section section-condutor">
+            <h2 class="section-title">DADOS DO CONDUTOR</h2>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="filiacao">Filiação</label>
+                <input type="text" id="filiacao" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="data-nasc">Data nasc.</label>
+                <input type="text" id="data-nasc" class="underline-input" placeholder="__/__/____">
+            </div>
+            <div class="form-group">
+                <label for="num-carta">N.º Carta</label>
+                <input type="text" id="num-carta" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="data-emissao">Data de emissão</label>
+                <input type="text" id="data-emissao" class="underline-input" placeholder="__/__/____">
+            </div>
+        </div>
+
+        <div class="form-section section-veiculo">
+            <h2 class="section-title">DADOS DO VEÍCULO</h2>
+            <div class="form-group">
+                <label for="matricula">Matrícula</label>
+                <input type="text" id="matricula" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="chassy">Chassy</label>
+                <input type="text" id="chassy" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="cor">Cor</label>
+                <input type="text" id="cor" class="underline-input">
+            </div>
+        </div>
+
+        <div class="form-section section-infraccao">
+            <h2 class="section-title">DADOS DA INFRACÇÃO</h2>
+            <div class="form-group">
+                <label for="previsao">Previsão</label>
+                <input type="text" id="previsao" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="punicao">Punição</label>
+                <input type="text" id="punicao" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" rows="3"></textarea>
+            </div>
+            <div class="form-group inline-field">
+                <label for="ucfs">UCF'S</label>
+                <input type="text" id="ucfs">
+            </div>
+        </div>
+
+        <div class="form-section section-gravidade">
+            <h2 class="section-title">GRAVIDADE</h2>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="muito-grave">
+                    <label for="muito-grave">Muito Grave</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="grave">
+                    <label for="grave">Grave</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="leve">
+                    <label for="leve">Leve</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section section-regime">
+            <h2 class="section-title">REGIME PROBATÓRIO</h2>
+            <div class="form-group">
+                <label for="habilitado-desde">Habilitado desde</label>
+                <input type="text" id="habilitado-desde" class="underline-input">
+            </div>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="sim" name="habilitado" value="sim">
+                    <label for="sim">Sim</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="nao" name="habilitado" value="nao">
+                    <label for="nao">Não</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section section-remessa">
+            <h2 class="section-title">REMESSA AO TRIBUNAL</h2>
+            <div class="form-group">
+                <label for="num-oficio">N.º de Ofício</label>
+                <input type="text" id="num-oficio" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="num-carta-matricula">N.º da Carta / Matrícula</label>
+                <input type="text" id="num-carta-matricula" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="data-envio">Data de envio</label>
+                <input type="text" id="data-envio" class="underline-input" placeholder="__/__/____">
+            </div>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dentro-prazo">
+                    <label for="dentro-prazo">Dentro do prazo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="fora-prazo">
+                    <label for="fora-prazo">Fora do prazo</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section section-anexar">
+            <h2 class="section-title">ANEXAR PROCESSOS</h2>
+            <div class="file-upload-wrapper">
+                <input type="file" id="upload-image" class="hidden-file-input">
+                <label for="upload-image" class="upload-button">Carregar imagem</label>
+                <div class="document-area">
+                    Acta de sentença
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section section-relatorio">
+            <h2 class="section-title">RELATÓRIO</h2>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="diario" name="relatorio-periodo">
+                    <label for="diario">Diário</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="semanal" name="relatorio-periodo">
+                    <label for="semanal">Semanal</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="mensal" name="relatorio-periodo">
+                    <label for="mensal">Mensal</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="trimestral" name="relatorio-periodo">
+                    <label for="trimestral">Trimestral</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="semestral" name="relatorio-periodo">
+                    <label for="semestral">Semestral</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="anual" name="relatorio-periodo">
+                    <label for="anual">Anual</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section section-grafico">
+            <h2 class="section-title">GRÁFICO NACIONAL DE MULTAS APLICADAS, PAGAS E ANULADAS EM TEMPO REAL</h2>
+            <div class="graph-placeholder">
+                [Espaço para Gráfico de Dados]
+            </div>
+            <div class="form-group">
+                <label for="num-multas">N.º DE MULTAS</label>
+                <input type="text" id="num-multas" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="pagas">Pagas</label>
+                <input type="text" id="pagas" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="anuladas">Anuladas</label>
+                <input type="text" id="anuladas" class="underline-input">
+            </div>
+        </div>
+
+        <div class="form-section section-mensagem">
+            <h2 class="section-title">MENSAGEM AO INFRACTOR</h2>
+            <div class="form-group">
+                <label for="num-telefone">N.º de telefone</label>
+                <input type="text" id="num-telefone" class="underline-input">
+            </div>
+            <div class="form-group">
+                <label for="rupe">RUPE</label>
+                <input type="text" id="rupe" class="underline-input">
+            </div>
+        </div>
+
+        <div class="validate-button-container">
+            <button type="submit" class="validate-button">VALIDAR</button>
+        </div>
+
+    </div>
+</body>
+</html>

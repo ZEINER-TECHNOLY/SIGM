@@ -45,3 +45,7 @@
 .contentOpcao {
     @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-screen flex items-center md:justify-around flex-col md:flex-row p-5 justify-center
 }
+
+.navContentTela1 {
+    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max w-screen
+}
