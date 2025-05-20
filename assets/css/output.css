@@ -563,6 +563,8 @@
   }
 }
 .cardTela1 {
+  position: relative;
+  bottom: calc(var(--spacing) * 0);
   margin: calc(var(--spacing) * 2);
   display: flex;
   height: calc(var(--spacing) * 52);
@@ -577,6 +579,18 @@
   padding: calc(var(--spacing) * 2.5);
   --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 300ms;
+  transition-duration: 300ms;
+  --tw-ease: linear;
+  transition-timing-function: linear;
+  &:hover {
+    @media (hover: hover) {
+      bottom: calc(var(--spacing) * 2);
+    }
+  }
   @media (width >= 48rem) {
     width: 25%;
   }
