@@ -51,9 +51,21 @@
 }
 
 .cardTela1 {
-    @apply bg-red-500 w-[80%] m-2 h-52
+    @apply w-[80%] m-2 h-52 bg-white shadow-2xl border-y-0 border-r-0 p-2.5 flex flex-col justify-around
+}
+
+.cardTela1 i {
+    @apply text-2xl w-max p-1 rounded-full px-2.5 
 }
 
 .cabecaCardTela1 {
-    @apply flex flex-col gap-2 p-2.5
+    @apply flex flex-col gap-2
+}
+
+.cabecaCardTela1 h3 {
+    @apply font-roboto font-bold text-[13pt]
+}
+
+.cardTela1 .dados {
+    @apply text-center font-arimo font-extrabold text-[13pt]
 }

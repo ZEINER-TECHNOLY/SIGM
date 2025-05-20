@@ -13,6 +13,8 @@
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-extralight: 200;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
@@ -262,6 +264,16 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-l-\[\#e74c3c\] {
+    border-left-color: #e74c3c;
+  }
+  .bg-\[\#e74c3c\] {
+    background-color: #e74c3c;
+  }
   .bg-gray-400 {
     background-color: var(--color-gray-400);
   }
@@ -510,15 +522,45 @@
 }
 .cardTela1 {
   margin: calc(var(--spacing) * 2);
+  display: flex;
   height: calc(var(--spacing) * 52);
   width: 80%;
-  background-color: var(--color-red-500);
+  flex-direction: column;
+  justify-content: space-around;
+  border-block-style: var(--tw-border-style);
+  border-block-width: 0px;
+  border-right-style: var(--tw-border-style);
+  border-right-width: 0px;
+  background-color: var(--color-white);
+  padding: calc(var(--spacing) * 2.5);
+  --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.cardTela1 i {
+  width: max-content;
+  border-radius: calc(infinity * 1px);
+  padding: calc(var(--spacing) * 1);
+  padding-inline: calc(var(--spacing) * 2.5);
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
 }
 .cabecaCardTela1 {
   display: flex;
   flex-direction: column;
   gap: calc(var(--spacing) * 2);
-  padding: calc(var(--spacing) * 2.5);
+}
+.cabecaCardTela1 h3 {
+  font-family: var(--font-roboto);
+  font-size: 13pt;
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+.cardTela1 .dados {
+  text-align: center;
+  font-family: var(--font-arimo);
+  font-size: 13pt;
+  --tw-font-weight: var(--font-weight-extrabold);
+  font-weight: var(--font-weight-extrabold);
 }
 @property --tw-rotate-x {
   syntax: "*";
