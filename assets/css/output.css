@@ -249,6 +249,9 @@
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
   }
+  .text-center {
+    text-align: center;
+  }
   .text-justify {
     text-align: justify;
   }
