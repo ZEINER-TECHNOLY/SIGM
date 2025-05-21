@@ -82,12 +82,16 @@ form .cardContent2 {
     @apply bg-white m-2 p-2 shadow-2xl
 }
 
+form .cardContent2 input {
+    @apply font-arimo border-2 px-1
+}
+
 .cardContent2 .navInputsTela2Col {
     @apply flex flex-col
 }
 
 .cabecalhoNavTela2 {
-    @apply flex items-center justify-between
+    @apply flex items-center justify-between pb-1.5
 }
 
 .cabecalhoNavTela2 i {
@@ -99,5 +103,5 @@ form .cardContent2 {
 }
 
 .navInputsTela2 label {
-    @apply font-roboto 
+    @apply font-roboto font-medium text-[11pt]
 }

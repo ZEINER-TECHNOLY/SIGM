@@ -17,6 +17,7 @@
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-extralight: 200;
+    --font-weight-medium: 500;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
@@ -627,6 +628,12 @@ form .cardContent2 {
   --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 }
+form .cardContent2 input {
+  border-style: var(--tw-border-style);
+  border-width: 2px;
+  padding-inline: calc(var(--spacing) * 1);
+  font-family: var(--font-arimo);
+}
 .cardContent2 .navInputsTela2Col {
   display: flex;
   flex-direction: column;
@@ -635,6 +642,7 @@ form .cardContent2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: calc(var(--spacing) * 1.5);
 }
 .cabecalhoNavTela2 i {
   font-size: 20px;
@@ -647,6 +655,9 @@ form .cardContent2 {
 }
 .navInputsTela2 label {
   font-family: var(--font-roboto);
+  font-size: 11pt;
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
 }
 @property --tw-rotate-x {
   syntax: "*";
