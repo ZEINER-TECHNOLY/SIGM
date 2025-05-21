@@ -83,7 +83,7 @@ form .cardContent2 {
 }
 
 form .cardContent2 input {
-    @apply font-arimo border-2 px-1
+    @apply font-arimo border-b-2 px-1 border-gray-400 outline-0
 }
 
 .cardContent2 .navInputsTela2Col {
