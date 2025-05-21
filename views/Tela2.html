@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>SIGM - Tela 2</title>
+    <script src="../assets/js/script.js" defer></script>
+    <meta name="author" content="Calebe 'CL' Lukombo">
+    <link rel="stylesheet" href="../assets/css/output.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="p-7">
+        <div class="divInicialTelas">
+            <nav class="flex items-center justify-center">
+                <a href="../index.html"><img src="../assets/img/logotipo.png" alt="" class="w-[65%]"></a>
+            </nav>
+            <nav>
+                <h1 class="font-roboto text-[#0c215e] font-bold text-[17pt]">Atualize-se com a SIGM</h1>
+                <p class="font-arimo font-extralight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit et, corporis molestias quos quo pariatur quasi delectus dolor tempore? Praesentium autem temporibus dolore repellat architecto! Ut dolor iste laborum omnis.</p>
+            </nav>
+        </div>
+
+        <div class="navContentTela2">
+            <form>
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <h3>Dados do Condutor</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="nomeCondutor">Nome do Condutor</label>
+                        <input type="text" placeholder="Nome do Condutor" id="nomeCondutor">
+                    </nav>
+
+                    <nav class="navInputsTela2">
+                        <label for="filiacao">Filiação</label>
+                        <input type="text" placeholder="Filiação" id="filiacao">
+                    </nav>
+
+                    <nav class="navInputsTela2">
+                        <label for="dataNascimento">Data de Nascimento</label>
+                        <input type="date" id="dataNascimento">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="NumCarta">Núm. da Carta</label>
+                        <input type="text" placeholder="Núm. da Carta" id="NumCarta">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="dataEmissao">Data de Emissão</label>
+                        <input type="date" id="dataEmissao">
+                    </nav>
+                </div>
+                
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-car-side"></i>
+                        <h3>Dados do Veículo</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" placeholder="Matrícula" id="matricula">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="chassis">Chassis</label>
+                        <input type="text" placeholder="Chassis" id="chassis">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="cor">Cor</label>
+                        <input type="text" placeholder="Cor" id="cor">
+                    </nav>
+                </div>
+                
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-road-bridge"></i>
+                        <h3>Dados da Infração</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="previsao">Previsão</label>
+                        <input type="text" placeholder="Previsão" id="previsao">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="punicao">Punição</label>
+                        <input type="text" placeholder="Punição" id="punicao">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="descricao">Descrição</label>
+                        <textarea placeholder="Descrição" id="descricao"></textarea>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="ucfs">UCF's</label>
+                        <input type="text" placeholder="UCF's" id="ucfs">
+                    </nav>
+                </div>
+                
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <h3>Gravidade</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="leve">Leve</label>
+                        <input type="radio" id="leve" name="gravidade">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="grave">Grave</label>
+                        <input type="radio" id="grave" name="gravidade">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="muitoGrave">Muito Grave</label>
+                        <input type="radio" id="muitoGrave" name="gravidade">
+                    </nav>
+                </div>
+
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-file"></i>
+                        <h3>Registro Probatório</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="habilitadoDesde">Habilitado desde</label>
+                        <input type="date" id="habilitadoDesde">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="simProbatorio">Sim</label>
+                        <input type="radio" id="simProbatorio" name="probatorio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="naoProbatorio">Não</label>
+                        <input type="radio" id="naoProbatorio" name="probatorio">
+                    </nav>
+                </div>
+
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-gavel"></i>
+                        <h3>Remessa ao Tribunal</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="numOficio">Núm. Ofício</label>
+                        <input type="text" placeholder="Núm. Ofício" id="numOficio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="numCartaConducaoTribunal">Núm. Carta Condução Tribunal</label>
+                        <input type="text" placeholder="Núm. Carta Condução" id="numCartaConducaoTribunal">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="dataEnvioTribunal">Data de Envio</label>
+                        <input type="date" id="dataEnvioTribunal">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="prazoEnvioTribunal">Prazo de Envio</label>
+                        <input type="radio" id="prazoEnvioTribunal" name="prazoEnvioTribunal">
+                        <label for="prazoEnvioTribunal">Fora do Prazo de Envio</label>
+                        <input type="radio" id="foraPrazoEnvioTribunal" name="prazoEnvioTribunal">
+                    </nav>
+                </div>
+
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-address-card"></i>
+                        <h3>Anexar Documentos</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="anexarDocumentos">Clique para anexar</label>
+                        <input type="file" id="anexarDocumentos">
+                    </nav>
+                </div>
+
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <h3>Relatório</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="diario">Diário</label>
+                        <input type="radio" id="diario" name="relatorio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="semanal">Semanal</label>
+                        <input type="radio" id="semanal" name="relatorio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="mensal">Mensal</label>
+                        <input type="radio" id="mensal" name="relatorio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="trimestral">Trimestral</label>
+                        <input type="radio" id="trimestral" name="relatorio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="semestral">Semestral</label>
+                        <input type="radio" id="semestral" name="relatorio">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="anual">Anual</label>
+                        <input type="radio" id="anual" name="relatorio">
+                    </nav>
+                </div>
+
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <h3>Gráfico Nacionacl de Multas Aplicadas, Pagas e Anuladas em Tempo Real</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <div class="tabelaGrafico">
+                            <h5>[ESPAÇO PARA GRÁFICO DE DADOS]</h5>
+                        </div>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="numMultasAplicadas">Núm. de Multas Aplicadas</label>
+                        <h4>245.847</h4>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="numMultasPagas">Núm. de Multas Pagas</label>
+                        <h4>123.456</h4>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="numMultasAnuladas">Núm. de Multas Anuladas</label>
+                        <h4>523.586</h4>
+                    </nav>
+                </div>
+
+                <div class="cardContent2">
+                    <nav class="cabecalhoNavTela2">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h3>Mensagem ao Infractor</h3>
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="numTelefoneInfrator">Núm. Telefone</label>
+                        <input type="text" placeholder="Núm. Telefone" id="numTelefoneInfrator">
+                    </nav>
+                    <nav class="navInputsTela2">
+                        <label for="mensagemInfrator">Mensagem</label>
+                        <textarea id="mensagemInfrator"></textarea>
+                    </nav>
+                </div>
+
+                <nav class="navBotoesForm">
+                    <a href="#"><button type="">Sair</button></a>
+                    <button type="button">Validar</button>
+                </nav>
+                
+            </form>
+        </div>
+
+    </nav>
+</body>
+</html>

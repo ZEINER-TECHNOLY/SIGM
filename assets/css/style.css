@@ -46,6 +46,10 @@
     @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-screen flex items-center md:justify-around flex-col md:flex-row p-5 justify-center
 }
 
+.divInicialTelas {
+    @apply md:flex-row flex flex-col gap-2.5 md:items-center
+}
+
 .navContentTela1 {
     @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max flex items-center justify-center flex-col md:flex-row md:flex-wrap pt-4
 }
@@ -68,4 +72,27 @@
 
 .cardTela1 .dados {
     @apply font-arimo font-extrabold text-[19pt]
+}
+
+.navContentTela2 form {
+    @apply flex flex-col
+}
+
+form .cardContent2 {
+    @apply bg-yellow-400 m-2 p-2
+}
+
+.cabecalhoNavTela2 {
+    @apply flex items-center justify-between
+}
+
+.cabecalhoNavTela2 i {
+    @apply text-[30px]
+}
+.cabecalhoNavTela2 i {
+    @apply text-[30px]
+}
+
+.navInputsTela2 label {
+    @apply font-roboto 
 }
