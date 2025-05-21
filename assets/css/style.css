@@ -74,12 +74,12 @@
     @apply font-arimo font-extrabold text-[19pt]
 }
 
-.navContentTela2 form {
-    @apply flex flex-col
+.navContentCardTela2 {
+    @apply flex flex-col sm:flex-row sm:flex-wrap sm:justify-center
 }
 
 form .cardContent2 {
-    @apply bg-white m-2 p-2 shadow-2xl
+    @apply bg-white m-2 p-2 shadow-2xl sm:w-[45%] md:w-[30%]
 }
 
 form .cardContent2 input {
