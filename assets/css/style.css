@@ -79,7 +79,11 @@
 }
 
 form .cardContent2 {
-    @apply bg-yellow-400 m-2 p-2
+    @apply bg-white m-2 p-2 shadow-2xl
+}
+
+.cardContent2 .navInputsTela2Col {
+    @apply flex flex-col
 }
 
 .cabecalhoNavTela2 {
@@ -87,10 +91,11 @@ form .cardContent2 {
 }
 
 .cabecalhoNavTela2 i {
-    @apply text-[30px]
+    @apply text-[20px] 
 }
-.cabecalhoNavTela2 i {
-    @apply text-[30px]
+
+.cabecalhoNavTela2 h3 {
+    @apply text-[11pt] font-roboto font-extrabold
 }
 
 .navInputsTela2 label {
