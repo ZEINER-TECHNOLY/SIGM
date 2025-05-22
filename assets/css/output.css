@@ -413,6 +413,12 @@
   .pt-3\.5 {
     padding-top: calc(var(--spacing) * 3.5);
   }
+  .pt-\[1\.5rem\] {
+    padding-top: 1.5rem;
+  }
+  .pt-\[2rem\] {
+    padding-top: 2rem;
+  }
   .text-center {
     text-align: center;
   }
