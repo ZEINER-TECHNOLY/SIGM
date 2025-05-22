@@ -215,12 +215,6 @@
   .h-screen {
     height: 100vh;
   }
-  .w-\[40\%\] {
-    width: 40%;
-  }
-  .w-\[41\%\] {
-    width: 41%;
-  }
   .w-\[45\%\] {
     width: 45%;
   }
@@ -296,14 +290,8 @@
   .border-pink-500 {
     border-color: var(--color-pink-500);
   }
-  .border-red-300 {
-    border-color: var(--color-red-300);
-  }
   .border-red-400 {
     border-color: var(--color-red-400);
-  }
-  .border-red-500 {
-    border-color: var(--color-red-500);
   }
   .border-l-\[\#1abc9c\] {
     border-left-color: #1abc9c;
@@ -389,20 +377,8 @@
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
-  .px-60 {
-    padding-inline: calc(var(--spacing) * 60);
-  }
-  .px-\[3\%\] {
-    padding-inline: 3%;
-  }
-  .px-\[3\.5\%\] {
-    padding-inline: 3.5%;
-  }
   .px-\[4\%\] {
     padding-inline: 4%;
-  }
-  .px-\[30\%\] {
-    padding-inline: 30%;
   }
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
@@ -416,8 +392,11 @@
   .pt-\[1\.5rem\] {
     padding-top: 1.5rem;
   }
-  .pt-\[2rem\] {
-    padding-top: 2rem;
+  .pt-\[2\.5rem\] {
+    padding-top: 2.5rem;
+  }
+  .pt-\[3rem\] {
+    padding-top: 3rem;
   }
   .text-center {
     text-align: center;
