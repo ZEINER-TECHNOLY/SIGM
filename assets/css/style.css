@@ -86,6 +86,14 @@ form .cardContent2 input {
     @apply font-arimo border-b-2 px-1 border-gray-400 outline-0
 }
 
+textarea {
+    @apply font-arimo border-2 border-gray-400 outline-0
+}
+
+.inputPesquisa {
+    @apply border-2 border-gray-400 p-1.5 outline-0 font-arimo bg-[url('../img/pesquisa.svg')] bg-no-repeat bg-right bg-auto
+}
+
 .cardContent2 .navInputsTela2Col {
     @apply flex flex-col
 }

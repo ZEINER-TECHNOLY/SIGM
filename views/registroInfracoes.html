@@ -13,12 +13,12 @@
 </head>
 <body>
     <nav class="p-7">
-        <div class="divInicialTelas">
+        <div class="divInicialTelas justify-between">
             <nav class="flex items-center justify-center">
-                <a href="../index.html"><img src="../assets/img/logotipo.png" alt="" class="w-[65%] sm:w-[95%] md:w-[100%]"></a>
+                <a href="../index.html"><img src="../assets/img/logotipo.png" alt="" class="w-[40%]"></a>
             </nav>
             <nav>
-                <input type="search" name="" id="" placeholder="Pesquisar...">
+                <input type="search" name="" id="" placeholder="Pesquisar..." class="inputPesquisa">
             </nav>
         </div>
 
@@ -113,6 +113,14 @@
                         <nav class="navInputsTela2">
                             <label for="muitoGrave">Muito Grave</label>
                             <input type="radio" id="muitoGrave" name="gravidade">
+                        </nav>
+                        <nav class="navInputsTela2 navInputsTela2Col">
+                            <label for="numTelefoneInfrator">Núm. Telefone</label>
+                            <input type="text" placeholder="Núm. Telefone" id="numTelefoneInfrator">
+                        </nav>
+                        <nav class="navInputsTela2 navInputsTela2Col">
+                            <label for="mensagemInfrator">Mensagem</label>
+                            <textarea id="mensagemInfrator"></textarea>
                         </nav>
                     </div>
                     
@@ -252,21 +260,6 @@
                         </nav>
                         <nav class="navInputsTela2 flex justify-center">
                             <button type="button" class="hover:bg-pink-500 hover:text-white p-1 font-roboto font-medium border-2 border-pink-500 text-pink-500 cursor-pointer transition-all duration-300 ease-linear">Ver Histórico</button>
-                        </nav>
-                    </div>
-
-                    <div class="cardContent2 border-amber-800 border-l-2">
-                        <nav class="cabecalhoNavTela2">
-                            <i class="fa-solid fa-envelope text-amber-800"></i>
-                            <h3 class="text-amber-800">Mensagem ao Infractor</h3>
-                        </nav>
-                        <nav class="navInputsTela2 navInputsTela2Col">
-                            <label for="numTelefoneInfrator">Núm. Telefone</label>
-                            <input type="text" placeholder="Núm. Telefone" id="numTelefoneInfrator">
-                        </nav>
-                        <nav class="navInputsTela2 navInputsTela2Col">
-                            <label for="mensagemInfrator">Mensagem</label>
-                            <textarea id="mensagemInfrator"></textarea>
                         </nav>
                     </div>
 
