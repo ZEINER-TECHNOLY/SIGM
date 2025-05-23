@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Contravenções</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #007bff; /* A nice blue for accents */
+    --secondary-color: #6c757d; /* For borders, etc. */
+    --text-color: #333;
+    --header-bg: #f8f9fa;
+    --row-even-bg: #f2f2f2;
+    --row-odd-bg: #ffffff;
+    --total-row-bg: #e9ecef;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top for better content flow */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.table-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 1200px; /* Max width for large screens */
+    overflow-x: auto; /* For horizontal scrolling on small screens */
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 2.2em;
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Ensures table is scrollable on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    min-width: 700px; /* Minimum width to prevent squishing on smaller screens */
+}
+
+thead th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 700;
+    position: sticky;
+    top: 0; /* Makes headers sticky during scroll */
+    z-index: 10; /* Ensures headers are above table content */
+}
+
+thead tr:nth-child(2) th {
+    background-color: #4a90e2; /* Slightly darker shade for sub-headers */
+    font-weight: 400;
+    font-size: 0.9em;
+    padding: 10px 10px;
+}
+
+th, td {
+    padding: 12px 10px;
+    border: 1px solid #dee2e6; /* Lighter border color */
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--row-even-bg);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--row-odd-bg);
+}
+
+tbody tr:hover {
+    background-color: #e0f2f7; /* Light blue on hover */
+    transition: background-color 0.3s ease;
+}
+
+.total-row {
+    background-color: var(--total-row-bg) !important; /* Override even/odd background */
+    font-weight: 700;
+    color: var(--primary-color);
+    border-top: 2px solid var(--primary-color); /* Stronger border for total row */
+}
+
+.total-row td {
+    padding: 15px 10px;
+    font-size: 1.1em;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .table-container {
+        padding: 15px;
+        border-radius: 0; /* Less aggressive border-radius on small screens */
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    table {
+        min-width: unset; /* Allow table to shrink more on small screens */
+        display: block; /* For better control of scrolling behavior */
+    }
+
+    thead {
+        display: none; /* Hide original header on small screens */
+    }
+
+    tbody, tr, td {
+        display: block; /* Make table elements act like block elements */
+        width: 100%; /* Take full width */
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--secondary-color);
+        border-radius: var(--border-radius);
+        overflow: hidden; /* Ensures border-radius applies nicely */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    td {
+        text-align: right;
+        padding-left: 50%; /* Space for the label */
+        position: relative;
+        border: none; /* Remove individual cell borders */
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    td::before {
+        content: attr(data-label); /* Use data-label for content */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 0.9em;
+    }
+
+    .total-row td {
+        text-align: right;
+        padding-left: 50%; /* Adjust padding for total row */
+    }
+
+    .total-row td::before {
+        content: attr(data-label); /* Use data-label for content */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 1.1em;
+    }
+}
+
+/* Add some padding for very small screens */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .table-container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1>Relatório de Contravenções</h1>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>N/O</th>
+                        <th>Províncias</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                        <th colspan="2">Contravenções</th>
+                        <th>Tribunal</th>
+                    </tr>
+                    <tr>
+                        <th class="sub-header"></th>
+                        <th class="sub-header"></th>
+                        <th class="sub-header"></th>
+                        <th class="sub-header"></th>
+                        <th class="sub-header">Graves</th>
+                        <th class="sub-header">Muito Graves</th>
+                        <th class="sub-header"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Lunda-Norte</td>
+                        <td>12H36</td>
+                        <td>07.05.025</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Cabinda</td>
+                        <td>13H30</td>
+                        <td>07.05.025</td>
+                        <td>---</td>
+                        <td>5</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>Bengo</td>
+                        <td>13H38</td>
+                        <td>07.05.025</td>
+                        <td>21</td>
+                        <td>2</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>Malanje</td>
+                        <td>11H38</td>
+                        <td>07.05.025</td>
+                        <td>6</td>
+                        <td>5</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>Zaire</td>
+                        <td>13H38</td>
+                        <td>07.05.025</td>
+                        <td>---</td>
+                        <td>10</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>06</td>
+                        <td>Cunene</td>
+                        <td>15H59</td>
+                        <td>07.05.025</td>
+                        <td>34</td>
+                        <td>2</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>07</td>
+                        <td>Huambo</td>
+                        <td>20H04</td>
+                        <td>07.05.025</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>08</td>
+                        <td>Luanda</td>
+                        <td>11H00</td>
+                        <td>07.05.025</td>
+                        <td>94</td>
+                        <td>3</td>
+                        <td>97</td>
+                    </tr>
+                    <tr>
+                        <td>09</td>
+                        <td>Uíge</td>
+                        <td>12H57</td>
+                        <td>08.05.025</td>
+                        <td>64</td>
+                        <td>49</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Cuanza-Norte</td>
+                        <td>13H35</td>
+                        <td>08.05.025</td>
+                        <td>7</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Lunda-Sul</td>
+                        <td>09H15</td>
+                        <td>09.05.025</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Cuanza-Sul</td>
+                        <td>09H15</td>
+                        <td>09.05.025</td>
+                        <td>26</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Huila</td>
+                        <td>09H15</td>
+                        <td>09.05.025</td>
+                        <td>27</td>
+                        <td>6</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Cubango</td>
+                        <td>09H39</td>
+                        <td>09.05.025</td>
+                        <td>---</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Namibe</td>
+                        <td>09H55</td>
+                        <td>09.05.025</td>
+                        <td>14</td>
+                        <td>---</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Benguela</td>
+                        <td>10H46</td>
+                        <td>09.05.025</td>
+                        <td>42</td>
+                        <td>30</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Mexíco</td>
+                        <td>12H36</td>
+                        <td>09.05.025</td>
+                        <td>7</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Bié</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Mexíco-Leste</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Cuando</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Icolo e Bengo</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="4">TOTAL</td>
+                        <td>360</td>
+                        <td>133</td>
+                        <td>191</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
