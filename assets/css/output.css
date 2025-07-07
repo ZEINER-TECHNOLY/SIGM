@@ -209,9 +209,6 @@
   .m-auto {
     margin: auto;
   }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
-  }
   .mt-2\.5 {
     margin-top: calc(var(--spacing) * 2.5);
   }
@@ -242,9 +239,6 @@
   .h-screen {
     height: 100vh;
   }
-  .w-\[1px\] {
-    width: 1px;
-  }
   .w-\[45\%\] {
     width: 45%;
   }
@@ -263,14 +257,8 @@
   .w-\[165px\] {
     width: 165px;
   }
-  .w-\[200px\] {
-    width: 200px;
-  }
   .w-max {
     width: max-content;
-  }
-  .flex-shrink {
-    flex-shrink: 1;
   }
   .shrink {
     flex-shrink: 1;
@@ -283,9 +271,6 @@
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -440,9 +425,6 @@
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
   }
-  .pt-3 {
-    padding-top: calc(var(--spacing) * 3);
-  }
   .pt-3\.5 {
     padding-top: calc(var(--spacing) * 3.5);
   }
@@ -553,10 +535,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, var(--color-gray-800) var(--tw-shadow-alpha), transparent);
     }
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
@@ -806,6 +784,16 @@
     align-items: center;
   }
 }
+.divInicialTelas1 {
+  align-items: flex-start;
+  justify-content: center;
+  @media (width >= 48rem) {
+    flex-direction: row;
+  }
+  @media (width >= 48rem) {
+    align-items: center;
+  }
+}
 .navContentTela1 {
   display: flex;
   height: max-content;
@@ -907,6 +895,9 @@ form .cardContent2 {
     width: 45%;
   }
   @media (width >= 48rem) {
+    width: 45%;
+  }
+  @media (width >= 64rem) {
     width: 30%;
   }
 }
@@ -1084,11 +1075,6 @@ table td {
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -1112,6 +1098,11 @@ table td {
   inherits: false;
   initial-value: 1;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -1131,12 +1122,12 @@ table td {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;
+      --tw-outline-style: solid;
     }
   }
 }

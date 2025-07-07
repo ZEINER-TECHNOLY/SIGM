@@ -50,6 +50,10 @@
     @apply lg:flex-row flex flex-col gap-2.5 lg:items-center
 }
 
+.divInicialTelas1 {
+    @apply md:flex-row items-start justify-center md:items-center
+}
+
 .navContentTela1 {
     @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-max flex items-center justify-center flex-col md:flex-row md:flex-wrap pt-4
 }
@@ -79,7 +83,7 @@
 }
 
 form .cardContent2 {
-    @apply bg-white m-2 p-2 shadow-2xl sm:w-[45%] md:w-[30%]
+    @apply bg-white m-2 p-2 shadow-2xl sm:w-[45%] md:w-[45%] lg:w-[30%]
 }
 
 form .cardContent2 input {
