@@ -27,7 +27,7 @@
 }
 
 .navInputs input {
-    @apply border-0 border-b-2 border-b-[#0c215e] px-4 pr-6 outline-0 font-roboto bg-right bg-no-repeat bg-size-[7%]
+    @apply border-0 border-b-2 border-b-[#0c215e] pr-6 outline-0 font-roboto bg-right bg-no-repeat bg-size-[7%]
 }
 
 .textoApresentacaoForm {
