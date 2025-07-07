@@ -43,11 +43,11 @@
 }
 
 .contentOpcao {
-    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-screen flex items-center md:justify-around flex-col md:flex-row p-5 justify-center
+    @apply bg-[url('../img/bg_content.png')] bg-cover bg-no-repeat h-screen flex items-center md:justify-around flex-col p-5 justify-center 
 }
 
 .divInicialTelas {
-    @apply md:flex-row flex flex-col gap-2.5 md:items-center
+    @apply lg:flex-row flex flex-col gap-2.5 lg:items-center
 }
 
 .navContentTela1 {
@@ -55,7 +55,7 @@
 }
 
 .cardTela1 {
-    @apply w-[80%] m-2 h-52 bg-white shadow-2xl border-y-0 border-r-0 p-2.5 flex flex-col justify-around md:w-[25%] relative bottom-0 hover:bottom-2 transition-all ease-linear duration-300
+    @apply w-[80%] m-2 h-52 bg-white shadow-2xl border-y-0 border-r-0 p-2.5 flex flex-col justify-around md:w-[35%] lg:w-[25%] relative bottom-0 hover:bottom-2 transition-all ease-linear duration-300
 }
 
 .cardTela1 i {
